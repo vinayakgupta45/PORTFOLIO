@@ -16,7 +16,7 @@
         <header>
         <div class="container1">
             <div class="intro">
-                <h2>Hello Visitor<br>I am a
+                <h2 class="animated-text">Hello Visitor<br>I am a
                     <span>Developement Trainee</span></h2>
                 <p>My work allows me to create and develop softwares.</p>
                 <a href="https://www.linkedin.com/in/vinayak-gupta-679385231/" target="_blank" class="btn"><b>Contact Me</b></a>
@@ -100,5 +100,17 @@
             </div>
         </div>
     </section>
+    <script>
+       
+window.addEventListener('scroll', function() {
+    document.querySelectorAll('section').forEach(section => {
+        let top = section.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            section.classList.add('visible');
+        }
+    });
+});
+
+    </script>
 </body>
 </html>

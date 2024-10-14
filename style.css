@@ -12,6 +12,18 @@ body {
     background-size:auto;
     padding-left: 10px;
 }
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
 
 .container1 {
     width: 120%;
@@ -31,7 +43,43 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+   
 }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 70%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blinkCursor {
+    0% {
+        border-right-color: rgba(0, 0, 0, 0.75);
+    }
+    100% {
+        border-right-color: transparent;
+    }
+}
+
 
 .container h1{
     text-decoration: underline;
@@ -67,6 +115,9 @@ header {
     padding: 20px 0;
     text-align: center;
     color: black;
+    background: linear-gradient(270deg, #ff9966, #ff5e62, #00d2ff);
+    background-size: 600% 600%;
+    animation: gradient 15s ease infinite;
 }
 nav{
     display: flex;
@@ -82,11 +133,24 @@ nav{
 .intro h2 {
     font-size: 3rem;
     color: black;
+    border-right: 2px solid #000;
+    /* white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(40,end), blink 0.75s step-end infinite; */
+}
+.animated-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid;
+    width: 0;
+    animation: typewriter 4s steps(40) 1s forwards, blinkCursor 500ms steps(40) infinite;
 }
 #ph{
     display: flex;
     align-items: center;
-    transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease; /* Smooth transitions for multiple properties */
+    transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.5s ease; 
 
 }
 .h1{
@@ -103,20 +167,60 @@ nav{
 }
 
 
+
+
 .info p {
     margin: 10px 0;
 }
 
 .about {
-    display: flex;
+    /* display: flex;
     margin: 50px 0;
-    padding-left: 10px;
+    padding-left: 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    background: linear-gradient(135deg, #ececec 0%, #ffffff 100%);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: 50px 0;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+
+}
+.about:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .about-img img {
-    width: 300px;
+    /* width: 300px;
     border-radius: 10px;
-    margin-right: 20px;
+    margin-right: 20px;    
+    animation: fadeIn 2s ease-in-out; */
+    width: 300px;
+    border-radius: 50%;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.about-img img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 40px rgba(0, 102, 255, 0.7);
+}
+
+.about-info ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.about-info ul li strong {
+    color: #0066ff;
+    transition: color 0.3s ease;
+}
+
+.about-info ul li:hover strong {
+    color: #ff6600;
 }
 
 .about-info {
@@ -136,6 +240,13 @@ nav{
 .btn{  
     border: 3px solid #0066ff;
 }
+.btn:hover {
+    background-color: #0066ff;
+    color: white;
+    box-shadow: 0 0 10px #0066ff;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 .skills {
     background-color: #121212;
@@ -192,6 +303,14 @@ nav{
     justify-content: space-evenly;
     padding-bottom: 50px;
 }
+.container2 img {
+    transition: transform 0.5s ease;
+}
+
+.container2 img:hover {
+    transform: translateY(-10px);
+}
+
 .Instagram img{
     width: 80px;
     border-radius:15px ;
